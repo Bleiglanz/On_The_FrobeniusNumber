@@ -9,11 +9,14 @@ fn main() {
     fn filter(p:usize,q:usize)->bool{
         q>=p && q<=2*p
     }
-    println!("    e(S);    m(S); max gen;    f(S);f/m");
+
+    let pi = |n|{one_million_primes.iter().filter(|x|{**x<=n}).count() };
+
+    println!("    e(S);    m(S); max gen;sporadic;       f;   pi(p);   pi(2p)");
     for p in Primes::all().take(1000) {
         let mut input:Vec<usize> = Vec::new();
         input.extend(one_million_primes.iter().filter(|q|filter(p,**q)));
-        let semigroup = frobeniusnumber::compute(&input);
-        println!("{:8};{:8};{:8};{:8};{}", semigroup.e, semigroup.m, input.iter().max().unwrap(), semigroup.f, semigroup.f as f64/ semigroup.m as f64);
+        let ng = frobeniusnumber::compute(&input);
+        println!("{:8};{:8};{:8};{:8};{:8};{:8};{:8}", ng.e, ng.m, input.iter().max().unwrap(), ng.f, ng.count_set, pi(p), pi(2*p));
     }
 }

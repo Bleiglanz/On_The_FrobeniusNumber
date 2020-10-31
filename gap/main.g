@@ -6,6 +6,11 @@ LoadPackage("NumericalSgps");
 #
 primes := Filtered([2..10000],IsPrime);
 
+pi := function(n)
+    return Length(Filtered([1..n],IsPrime));
+end;
+
+
 for p in primes do
     
     ng := NumericalSemigroup(Filtered([p..2*p],IsPrime));
@@ -16,6 +21,9 @@ for p in primes do
 
     f := FrobeniusNumber(ng);
 
-    Print("e=",e,"   m=",m,"    f=",f,"   f/m=",1.0*f/m,"\n");
+    sporadic := f+1-GenusOfNumericalSemigroup(ng);
+
+    Print("e=",e," m=",m," f=",f," f/m=",1.0*f/m," sporadic=", sporadic," pi(2p)=",pi(2*p)," pi(p)=",pi(p),"\n");
+
 od;
 
