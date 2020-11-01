@@ -9,7 +9,7 @@ cannot be written as a sum of primes from  [p,p+λp].
 
 Then 
 
-f_λ∼⌊2+2λ⌋p 
+f_λ∼⌊2+2/λ⌋p 
 
 as p  goes to infnity.
 
