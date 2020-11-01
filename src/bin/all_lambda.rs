@@ -6,6 +6,7 @@ fn main() {
     println!("1+lambda;       n;    m(S); max gen;    e(S);   #gaps;    #set;    f(S);f/m");
 
     // we want the specific example of p=48623
+    // we will try ever bigger slices of the prime numbers
     for a in 5001..5002usize {
         let n=a+1; //makes p the n-th prime
         let mut b = a+500; // start with five hundred primes
