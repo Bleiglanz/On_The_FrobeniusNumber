@@ -1,11 +1,11 @@
 LoadPackage("NumericalSgps");
 
-primes := Filtered([2..500],IsPrime);
+primes := Filtered([2..1000],IsPrime);
 
 outfile := "../target/plot-some-lambda.csv";
 
-PrintTo(outfile,"lambda;p;f/p\n");
-for lambda in [0.2,0.5,1.0] do
+PrintTo(outfile,"lambda;p;f_over_p\n");
+for lambda in [0.1,0.5,1.0] do
     for p in primes do
         input := Filtered([p..p+Int(lambda*p)],IsPrime);
         if Length(input)>1 then
@@ -17,4 +17,7 @@ for lambda in [0.2,0.5,1.0] do
     od;
 od;
 Print("end");
+# Plot for example
+# dat = read.csv("../target/plot-some-lambda.csv",sep=";",header=TRUE,dec=".");
+# ggplot(data=dat, aes(x=p, y=f_over_p, group=lambda,colour=lambda))+geom_line()+geom_point();
 
