@@ -57,7 +57,7 @@ p for various primes p.
 
 ## plots
 ```
-cargo b --release && ./target/release/plots ../target/plots_from_rust.csv
+cargo b --release && ./target/release/plots >../target/plots_from_rust.csv
 ```
 creates a csv which is used by the 
 python script py/plot.py to draw some pictures
