@@ -19,6 +19,6 @@ fn main() {
         let mut input:Vec<usize> = Vec::new();
         input.extend(one_million_primes.iter().filter(|q|filter(p,**q)));
         let ng = frobeniusnumber::compute(&input);
-        println!("{:8};{:8};{:8};{:8};{:8};{:8};{:8}", ng.e, ng.m, input.iter().max().unwrap(), ng.f, ng.count_set, pi(p), pi(2*p));
+        println!("{:8};{:8};{:8};{:8};{:8};{:8};{:8}", ng.e, ng.m, input.iter().max().unwrap(), ng.count_set, ng.f, pi(p), pi(2*p));
     }
 }
